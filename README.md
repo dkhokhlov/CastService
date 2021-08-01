@@ -51,7 +51,7 @@ $ kill -term 10612
 $ kill -quit 10612
 ```
 
-3) Run with debugger enabled and waiting for attach
+3) Run with debugger enabled waiting for attach
 ```
 $ ./mk.run.debug
 ```
