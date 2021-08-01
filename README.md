@@ -2,13 +2,17 @@
 See the problem description for CastService functional spec. 
 This service implementation uses RMI for service calls and TCP socket for streaming of serialized [Cast](https://github.com/dkhokhlov/CastService/blob/main/src/main/java/castservice/Cast.java) objects.
 
-## Interface definition
+## Design Notes
 
 Interface is defined in: 
 
 [com.trumid.castservice.ICastService](https://github.com/dkhokhlov/CastService/blob/main/src/main/java/castservice/ICastService.java)
 
 ![Diagram](diagram.JPG)
+
+- [Class Diagram](class_diagram.pdf)
+- collection containers are thread safe, concurrent versions: **LinkedBlockingQueue, ConcurrentHashMap, CopyOnWriteArrayList**
+
 
 ## Build
 - uses maven and JDK 1.8
