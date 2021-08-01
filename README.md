@@ -13,6 +13,11 @@ Interface is defined in:
 - [Class Diagram](class_diagram.pdf)
 - collection containers are thread safe, concurrent versions: **LinkedBlockingQueue, ConcurrentHashMap, CopyOnWriteArrayList**
 
+## To-Do
+- extract test cases from Client to test classes
+- add getters/setters
+- refine preperties visibilities
+- mode javadocs 
 
 ## Build
 - uses maven and JDK 1.8
