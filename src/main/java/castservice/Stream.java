@@ -45,10 +45,8 @@ public class Stream implements Runnable {
         shutdown();
     }
 
-    public void shutdown() throws InterruptedException
+    public void close()
     {
-        System.out.printf("Stream shutdown: targetUserId=%d port=%d", targetUserId_, port_);
-        isShutdown_ = true;
         try {
             if (serverSocket_ != null)
                 serverSocket_.close();
@@ -57,6 +55,13 @@ public class Stream implements Runnable {
             if(streamSocket_ != null)
                 streamSocket_.close();
         } catch(Exception ignore) {}
+    }
+
+    public void shutdown() throws InterruptedException
+    {
+        System.out.printf("Stream shutdown: targetUserId=%d port=%d\n", targetUserId_, port_);
+        isShutdown_ = true;
+        close();
         thread_.join();
     }
 
@@ -75,34 +80,39 @@ public class Stream implements Runnable {
     {
         try
         {
-            System.out.printf("Stream waiting accept: targetUserId=%d port=%d",
+            System.out.printf("Stream waiting accept: targetUserId=%d port=%d\n",
                     targetUserId_, port_);
             // waiting for connection from client
             while (!isShutdown_) {
                 try {
                     streamSocket_ = serverSocket_.accept();
                     serverSocket_.close(); // no more connections
+                    streamSocket_.setKeepAlive(true);
                     break;
                 } catch (SocketTimeoutException ignore) { }
             }
-            System.out.printf("Stream connected: targetUserId=%d port=%d remote=%d",
+            System.out.printf("Stream connected: targetUserId=%d port=%d remote=%d\n",
                     targetUserId_, port_, streamSocket_.getPort());
             ObjectOutputStream oos = new ObjectOutputStream(streamSocket_.getOutputStream());
             oos.flush();
+            Cast cast;
             while (!isShutdown_) {
-                Cast cast;
                 try {
                     cast = streamQueue_.poll(200, TimeUnit.MILLISECONDS);
                 } catch (InterruptedException ignore) {
                     continue;
                 }
+                if(cast == null)
+                    continue;
                 oos.writeObject(cast);
                 oos.flush();
+                System.out.printf("Stream sent: [%s]\n", cast);
             }
         } catch(Exception e) {
             e.printStackTrace();
         }
         target_streams_.remove(this);
-        System.out.printf("Stream thread exit: originatorUserId=%d port=%d", targetUserId_, port_);
+        close();
+        System.out.printf("Stream thread exit: originatorUserId=%d port=%d\n", targetUserId_, port_);
     }
 }
