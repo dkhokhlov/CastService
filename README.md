@@ -1,5 +1,5 @@
 # CastService
-See problem description for CastService functional spec. 
+See the problem description for CastService functional spec. 
 This service implementation uses RMI for service calls and TCP socket for streaming of serialized [Cast](https://github.com/dkhokhlov/CastService/blob/main/src/com/trumid/castservice/Cast.java) objects.
 
 ## Interface definition
@@ -25,10 +25,10 @@ $ ps aux | grep com.trumid.castservice.Main
 owner    10612 12.0  0.2 7213088 33752 pts/4   Sl+  19:12   0:00 java castservice.Main
 ```
 
-## Run demo client
+## Run Demo client
 
 ```
-./mk.client
+./mk.client localhost
 ```
 
 ## Terminate standalone service
