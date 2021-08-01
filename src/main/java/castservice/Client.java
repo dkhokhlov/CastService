@@ -1,13 +1,8 @@
 package castservice;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.net.Socket;
-import java.time.Instant;
-import java.util.Properties;
 import java.rmi.Naming;
-import java.rmi.RemoteException;
 
 public class Client {
     private final ICastService service_;
