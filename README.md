@@ -47,6 +47,13 @@ $ kill -term 10612
 ```
 
 2) Send Ctrl-C to running app
+```
+^C
+ShutdownHook called!
+shutdown() called...
+Exiting...
+130
+```
 
 ## Debug
 
