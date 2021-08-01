@@ -20,7 +20,7 @@ This service implementation uses RMI for service calls and TCP socket for stream
 - extract IRemoteService iface from CastService ( for register() etc calls) 
 - add getters/setters
 - refine class property visibilities and final modifiers
-- mode javadocs 
+- add more javadocs
 
 ## Build
 - uses maven and JDK 1.8
