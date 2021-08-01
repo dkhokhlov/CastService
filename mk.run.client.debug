@@ -1,2 +1,2 @@
-java -cp target/classes -Xdebug -Xrunjdwp:transport=dt_socket,address=11000,server=y castservice.Client $*
+java -cp target/classes -Xdebug -Xrunjdwp:transport=dt_socket,address=11001,server=y castservice.Client $*
 echo $?

@@ -20,17 +20,17 @@ public interface ICastService extends java.rmi.Remote {
     /**
      * Send a Cast to target users
      * @param cast
-     * @return
+     * @return  String, ticket id
      * @throws InvalidParamException, RemoteException
      */
-    String sendCast(Cast cast) throws InvalidParamException, RemoteException, ServiceErrorException;  // return ticket id
+    String sendCast(Cast cast) throws InvalidParamException, RemoteException, ServiceErrorException;
 
     /**
      * Cancel specific Cast - remove from the active Casts book
      * @param originatorUserId
      * @param bondId
      * @param side
-     * @return ticket id
+     * @return ticket id  String, ticket id
      * @throws CastNotFoundException, InvalidParamException, RemoteException
      */
     String cancelCast(long originatorUserId, long bondId, int side) throws CastNotFoundException,
@@ -39,17 +39,20 @@ public interface ICastService extends java.rmi.Remote {
     /**
      * Get snapshot of the all active Casts for specific targetUserId
      * @param targetUserId
-     * @return
+     * @return  Cast array, empty if nothing found
      * @throws InvalidParamException, RemoteException
      */
     Cast[] getActiveCasts(long targetUserId) throws InvalidParamException, RemoteException;
 
     /**
-     *
-     * @param originatorUserId
+     * Create Cast Stream. Returns port number that client needs to connect to.
+     * Semantic is Service implementation specific. CastService Streamer implementation uses OutputObjectStream over
+     * TCP socket.
+     * @see Client for reference implementation.
+     * @param targetUserId
      * @return port number of socket server (Cast stream)
      * @throws InvalidParamException, RemoteException
      */
-    int streamCasts(long originatorUserId) throws InvalidParamException, RemoteException, ServiceErrorException; // return stream port
+    int streamCasts(long targetUserId) throws InvalidParamException, RemoteException, ServiceErrorException;
 }
 
