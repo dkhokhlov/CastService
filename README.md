@@ -8,6 +8,8 @@ Interface is defined in:
 
 [com.trumid.castservice.ICastService](https://github.com/dkhokhlov/CastService/blob/main/src/com/trumid/castservice/ICastService.java#L8)
 
+![Diagram](diagram.JPG)
+
 ## Build
 - uses maven and JDK 1.8
 ```
