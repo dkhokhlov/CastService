@@ -1,6 +1,6 @@
 # CastService
 See the problem description for CastService functional spec. 
-This service implementation uses RMI for service calls and TCP socket for streaming of serialized [Cast](https://github.com/dkhokhlov/CastService/blob/main/src/com/trumid/castservice/Cast.java) objects.
+This service implementation uses RMI for service calls and TCP socket for streaming of serialized [Cast](https://github.com/dkhokhlov/CastService/blob/main/src/main/java/castservice/Cast.java) objects.
 
 ## Interface definition
 
