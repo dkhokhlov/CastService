@@ -1,6 +1,6 @@
 # CastService
 See the problem description for CastService functional spec. 
-This service implementation uses RMI for service calls and TCP socket for streaming of serialized [Cast](https://github.com/dkhokhlov/CastService/blob/main/src/main/java/castservice/Cast.java) objects.
+This service implementation uses RMI for service calls and TCP socket for streaming of serialized [Cast](https://github.com/dkhokhlov/CastService/blob/main/src/main/java/castservice/Cast.java) objects. Java and Scala demo clients are provided.
 
 ## Design Notes
 
@@ -22,13 +22,19 @@ This service implementation uses RMI for service calls and TCP socket for stream
 - add getters/setters
 - refine class property visibilities and final modifiers
 - add more javadocs
+- add more Junit tests
 
 ## Build
-- uses maven and JDK 1.8
+- build uses maven and JDK 1.8
+- to build Java client:
 ```
 ./mk
 ```
+- to build Scala client:
+```
+./mk.scala
 
+```
 ## Run standalone service
 
 ```
@@ -40,10 +46,15 @@ $ ps aux | grep com.trumid.castservice.Main
 owner    10612 12.0  0.2 7213088 33752 pts/4   Sl+  19:12   0:00 java castservice.Main
 ```
 
-## Run Demo client
+## Run Demo clients
+- Java client
 
 ```
-./mk.client localhost
+./mk.run.client localhost
+```
+- Scala client
+```
+./mk.run.client.scala localhost
 ```
 
 ## Call Stats
