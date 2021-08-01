@@ -10,8 +10,11 @@ Interface is defined in:
 
 ![Diagram](diagram.JPG)
 
-- [Class Diagram](class_diagram.pdf)
-- collection containers are thread safe, concurrent versions: **LinkedBlockingQueue, ConcurrentHashMap, CopyOnWriteArrayList**
+* [Class Diagram](class_diagram.pdf)
+* collection containers are thread safe, concurrent versions: **LinkedBlockingQueue, ConcurrentHashMap, CopyOnWriteArrayList**
+* Threads (except main): 
+  - "Incoming queue loop" 1,2,3 on block diagram, in CastService
+  - "Steam loop", in Stream  
 
 ## To-Do
 - extract test cases from Client to test classes
