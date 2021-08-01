@@ -11,12 +11,18 @@ Interface is defined in:
 ## Run standalone service
 
 ```
-$ java com.trumid.castservice.Main
+$ ./mk.run
 CastService v1.0.0
 Ready
 
 $ ps aux | grep com.trumid.castservice.Main
-owner    10612 12.0  0.2 7213088 33752 pts/4   Sl+  19:12   0:00 java com.trumid.castservice.Main
+owner    10612 12.0  0.2 7213088 33752 pts/4   Sl+  19:12   0:00 java castservice.Main
+```
+
+## Run demo client
+
+```
+./mk.client
 ```
 
 ## Terminate standalone service
@@ -37,6 +43,11 @@ $ kill -term 10612
 
 ```
 $ kill -quit 10612
+```
+
+3) Run with debugger enabled and waiting for attach
+```
+$ ./mk.run.debug
 ```
 
 ## Life cycle
