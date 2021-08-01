@@ -9,8 +9,6 @@ public class Main {
 
     public static void main(String[] args)
     {
-//        Cast a = new Cast(1L, 2L, 0, 3.0f, 4, Cast.Status.Active, new long[] {0L, 1L, 2L, 3L});
-//        Cast b = new Cast(1L, 2L, 0, 3.0f, 4, Cast.Status.Active, new long[] {0L, 1L, 2L, 3L});
         int exit_code = 0;
         service_ = new CastService();
         try {
