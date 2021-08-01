@@ -6,7 +6,7 @@ This service implementation uses RMI for service calls and TCP socket for stream
 
 Interface is defined in: 
 
-[com.trumid.castservice.ICastService](https://github.com/dkhokhlov/CastService/blob/main/src/com/trumid/castservice/ICastService.java#L8)
+[com.trumid.castservice.ICastService](https://github.com/dkhokhlov/CastService/blob/main/src/main/java/castservice/ICastService.java)
 
 ![Diagram](diagram.JPG)
 
