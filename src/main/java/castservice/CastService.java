@@ -107,6 +107,7 @@ class CastService implements ICastService, Runnable {
                     Target target = targets_.get(targetUserId);
                     if(target == null)
                         target = new Target(targetUserId);
+                        targets_.put(targetUserId, target);
                     // put cast into "target" book and
                     // add cast to stream queues if any
                     // this shall be be fast - O(C)
@@ -144,7 +145,7 @@ class CastService implements ICastService, Runnable {
         // enqueue and return fast
         incomingQueue_.add(cast);
         String ticket = createTicket(cast.originatorUserId_);
-        System.out.printf("sendCast: %s [%s]%n\n", cast, ticket);
+        System.out.printf("sendCast: %s [%s]\n", cast, ticket);
         return ticket;
     }
 
@@ -173,7 +174,7 @@ class CastService implements ICastService, Runnable {
         // TODO: add bg thread to remove canceled.
         //  Consider weak refs.
         String ticket = createTicket(originatorUserId);
-        System.out.printf("cancelCast: %s [%s]%n\n", cast, ticket);
+        System.out.printf("cancelCast: %s [%s]\n", cast, ticket);
         return ticket;
     }
 
@@ -203,7 +204,7 @@ class CastService implements ICastService, Runnable {
                 target.activeCasts_.remove(pair.getKey());  // remove non-active casts from target's book
         }
         System.out.printf("getActiveCasts: targetUserId=%d, casts=%d\n", targetUserId, activeCasts.size());
-        return (Cast[])activeCasts.toArray();
+        return (Cast[])activeCasts.toArray(new Cast[activeCasts.size()]);
     }
 
     /**

@@ -27,9 +27,13 @@ public class Client {
         int exit_code = 0;
         Client client = new Client(args[0]);
 
-        String ticket = client.service().sendCast(a);
-
+        client.service().sendCast(a);
         Cast[] casts = client.service().getActiveCasts(10);
+        assert(casts.length == 1 && casts[0].id().equals(a.id()));
+
+        client.service().cancelCast(a.originatorUserId_, a.bondId_, a.side_);
+        casts = client.service().getActiveCasts(10);
+        assert(casts.length == 0);
 
         System.out.println("Exiting...");
     }
