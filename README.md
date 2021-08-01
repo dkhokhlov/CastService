@@ -13,7 +13,8 @@ This service implementation uses RMI for service calls and TCP socket for stream
 * collection containers are thread safe, concurrent versions: **LinkedBlockingQueue, ConcurrentHashMap, CopyOnWriteArrayList**
 * Threads (except main): 
   - "Incoming queue loop" 1,2,3 on block diagram, in CastService
-  - "Steam loop", in Stream  
+  - "Steam loop", in Stream
+  - RMI connection threads - one per remote client (unlimited, but can be limited by properties)
 
 ## To-Do
 - extract test cases from Client to test classes
