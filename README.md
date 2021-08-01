@@ -33,6 +33,11 @@ owner    10612 12.0  0.2 7213088 33752 pts/4   Sl+  19:12   0:00 java castservic
 ./mk.client localhost
 ```
 
+## Call Stats
+- 0.372 ms per sendCast()
+- 0.136 ms per cancelCast()
+- 0.294 ms per getActiveCasts()
+
 ## Terminate standalone service
 
 1) Send TERM signal

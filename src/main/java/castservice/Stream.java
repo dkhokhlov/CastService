@@ -87,7 +87,7 @@ public class Stream implements Runnable {
                 try {
                     streamSocket_ = serverSocket_.accept();
                     serverSocket_.close(); // no more connections
-                    streamSocket_.setKeepAlive(true);
+                    streamSocket_.setKeepAlive(true); // to detect dead clients
                     break;
                 } catch (SocketTimeoutException ignore) { }
             }

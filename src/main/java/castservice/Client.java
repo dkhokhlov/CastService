@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.time.Instant;
 import java.util.Properties;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
@@ -63,8 +64,40 @@ public class Client {
             Cast cast = (Cast)stream.readObject();
             System.out.println(cast);
             client.service().sendCast(a);
-            Thread.sleep(1000);
+            Thread.sleep(10);
         }
+
+        // timing sendCast() burst
+        System.out.println("timing sendCast() burst - 1000 calls");
+        long t0 = System.currentTimeMillis();
+        for(int i = 1; i < 1000; i++)
+        {
+            a.bondId_++;
+            client.service().sendCast(a);
+        }
+        long t1 = System.currentTimeMillis();
+        System.out.printf("%.3f ms per sendCast()\n", (t1 - t0) / 1000.0);
+
+        // timing sendCast() burst
+        System.out.println("timing sendCast() burst - 1000 calls");
+        t0 = System.currentTimeMillis();
+        for(int i = 1; i < 1000; i++)
+        {
+            client.service().cancelCast(a.originatorUserId_, a.bondId_--, a.side_);
+        }
+        t1 = System.currentTimeMillis();
+        System.out.printf("%.3f ms per cancelCast()\n", (t1 - t0) / 1000.0);
+
+        // timing sendCast() burst
+        System.out.println("timing sendCast() burst - 1000 calls");
+        t0 = System.currentTimeMillis();
+        for(int i = 1; i < 1000; i++)
+        {
+            casts = client.service().getActiveCasts(11);;
+        }
+        t1 = System.currentTimeMillis();
+        System.out.printf("%.3f ms per getActiveCasts()\n", (t1 - t0) / 1000.0);
+
         System.out.println("Exiting...");
     }
 }
