@@ -45,7 +45,7 @@ $ kill -term 10612
 
 1) Logging goes to stdout 
 
-2) Print stack trace to stderr:
+2) Prints stack trace to stderr:
 
 ```
 $ kill -quit 10612
