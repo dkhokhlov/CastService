@@ -19,7 +19,7 @@ This service implementation uses RMI for service calls and TCP socket for stream
 - extract test cases from Client to test classes
 - extract IRemoteService iface from CastService ( for register() etc calls) 
 - add getters/setters
-- refine preperties visibilities
+- refine class property visibilities and final modifiers
 - mode javadocs 
 
 ## Build
