@@ -5,7 +5,7 @@ This service implementation uses RMI for service calls and TCP socket for stream
 ## Design Notes
 
 * Remote Service Interface is defined in ("code first"): 
-[com.trumid.castservice.ICastService](https://github.com/dkhokhlov/CastService/blob/main/src/main/java/castservice/ICastService.java)
+[castservice.ICastService](https://github.com/dkhokhlov/CastService/blob/main/src/main/java/castservice/ICastService.java)
 
 ![Diagram](diagram.JPG)
 
