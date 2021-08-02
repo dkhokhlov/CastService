@@ -17,7 +17,7 @@ This service implementation uses RMI for service calls and TCP socket for stream
   - multiple RMI connection threads - one per remote Client (unlimited, but can be limited by properties)
 
 ## To-Do
-- extract test cases from Client to test classes
+- extract test cases from Client into Junit tests classes
 - extract IRemoteService iface from CastService ( for register() etc calls) 
 - add getters/setters
 - refine class property visibilities and final modifiers
