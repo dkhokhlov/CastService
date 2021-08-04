@@ -16,9 +16,9 @@ This service implementation uses RMI for service calls and TCP socket for stream
 * Cast state only changes from **Active -> Canceled**
 * collection containers are thread safe, concurrent versions: **LinkedBlockingQueue, ConcurrentHashMap, CopyOnWriteArrayList**
 * Threads (except main): 
-  - one "Incoming queue loop", doing [1,2,3] steps on block diagram, in CastService
-  - multiple "Steam loop", one per Stream
   - multiple RMI connection threads - one per remote Client (unlimited, but can be limited by properties)
+  - one "Incoming queue" loop, doing [1,2,3] steps on block diagram, in CastService object
+  - multiple "Steam loop", one per Stream object/session
 
 ## To-Do
 - extract test cases from Client into Junit tests classes
