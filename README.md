@@ -10,6 +10,10 @@ This service implementation uses RMI for service calls and TCP socket for stream
 ![Diagram](diagram.JPG)
 
 * [Class Diagram](class_diagram.pdf)
+* All Casts are coming through single "Incoming Queue" - multiple producers (SendCast) and single consumer CastService instance.
+* Cast has unique id/key - (**originatorUserId, bondId, side**)
+* There is only one instance of Cast with specific id, multiple collections can keep reference to the same instance
+* Cast state only changes from **Active -> Canceled**
 * collection containers are thread safe, concurrent versions: **LinkedBlockingQueue, ConcurrentHashMap, CopyOnWriteArrayList**
 * Threads (except main): 
   - one "Incoming queue loop", doing [1,2,3] steps on block diagram, in CastService
