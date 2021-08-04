@@ -27,6 +27,7 @@ This service implementation uses RMI for service calls and TCP socket for stream
 - refine class property visibilities and final modifiers
 - add more javadocs
 - add more Junit tests
+- measure Service throughput with big number of concurrent clients (contention)
 
 ## Build
 - build uses maven and JDK 1.8
